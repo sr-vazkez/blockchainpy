@@ -28,3 +28,18 @@ class Blockchain(object):
          
          return block
     
+     # funcion para obtener el ultimo bloque
+     @property
+     def last_block(self):
+          
+          return self.chain[-1]
+     # Funcion para hacer transaccion
+     def new_transaction(self, sender, recipient, amount):
+          transaction = {
+               'sender': sender,
+               'recipient': recipient,
+               'amount': amount
+          }
+         self.pendng_transactions.append(transaction)
+         return self.last_block
+    
