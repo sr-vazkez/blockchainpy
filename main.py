@@ -42,4 +42,14 @@ class Blockchain(object):
           }
          self.pendng_transactions.append(transaction)
          return self.last_block
-    
+    # Generando nuestros hashes para el block
+     def hash(self, block):
+          string_object = json.dumps(block, sort_keys=True)
+          block_string = string_object.encode()
+          
+          
+          raw_hash = hashlib.sha256(block_string)
+          hex_hash = raw_hash.hexdigest()
+          
+          return hex_hash
+     
